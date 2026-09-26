@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, PartyPopper, QrCode, Sparkles } from 'lucide-react'
+import { ArrowRight, PartyPopper, Sparkles } from 'lucide-react'
 import { birthdayData } from '../data/birthdayData'
 import PandaMascot from './PandaMascot'
 import './cinematicIntro.css'
 import './pandaCinema.css'
 
-export default function CinematicIntro({ ready, onEnter, onQr }) {
+export default function CinematicIntro({ ready, onEnter }) {
   return (
     <section className={`cinema-intro ${ready ? 'is-ready' : ''}`} aria-label="Birthday mission cinematic introduction">
       <div className="cinema-grain" aria-hidden="true" />
@@ -69,9 +69,6 @@ export default function CinematicIntro({ ready, onEnter, onQr }) {
             <Sparkles aria-hidden="true" />
             Start the celebration
             <ArrowRight aria-hidden="true" />
-          </button>
-          <button type="button" className="cinema-qr" onClick={onQr} disabled={!ready}>
-            <QrCode aria-hidden="true" /> QR code
           </button>
         </motion.div>
 

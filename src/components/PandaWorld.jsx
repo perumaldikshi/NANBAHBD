@@ -4,7 +4,7 @@ import './pandaTheme.css'
 import './pandaWorld.css'
 
 const activityByPath = {
-  '/': 'Welcome to Panda World!', '/mission': 'Panda is testing your memories', '/memories': 'Panda is exploring the archive', '/lock': 'Detective panda found a secret lock', '/letter': 'Panda is reading your friendship letter', '/last-thing': 'Panda found one last memory', '/final': 'Party panda is ready!', '/qr': 'Panda is preparing your access pass',
+  '/': 'Welcome to Panda World!', '/mission': 'Panda is testing your memories', '/memories': 'Panda is exploring the archive', '/lock': 'Detective panda found a secret lock', '/letter': 'Panda is reading your friendship letter', '/last-thing': 'Panda found one last memory', '/final': 'Party panda is ready!',
 }
 
 export default function PandaWorld() {

@@ -12,7 +12,6 @@ const games = {
   '/letter': { title: 'Friendship Hearts', instruction: 'Collect five green hearts to open the letter.', icon: '💚', total: 5 },
   '/last-thing': { title: 'Leaf Cleanup', instruction: 'Help the panda clear six leaves from the path.', icon: '🍃', total: 6 },
   '/final': { title: 'Birthday Balloon Pop', instruction: 'Pop five green balloons to start Ezhil’s finale.', icon: '🎈', total: 5 },
-  '/qr': { title: 'Access Pass', instruction: 'Collect three bamboo tokens to generate the QR pass.', icon: '🎋', total: 3 },
 }
 
 export default function PandaRouteLoader() {

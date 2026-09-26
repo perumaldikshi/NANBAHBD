@@ -24,7 +24,7 @@ export default function Home() {
   }
 
   return <PageTransition>
-    <CinematicIntro ready={ready} onEnter={enter} onQr={() => navigate('/qr')} />
+    <CinematicIntro ready={ready} onEnter={enter} />
     <section id="hero" className="hero section">
       <motion.div variants={staggerChildren} initial="hidden" whileInView="visible" viewport={{ once: true }}>
         <motion.p variants={fadeUp} className="eyebrow">A friendship worth celebrating • 29.09.2026</motion.p>
