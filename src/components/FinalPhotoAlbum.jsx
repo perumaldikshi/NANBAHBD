@@ -40,14 +40,16 @@ export default function FinalPhotoAlbum() {
       <div className="album-toolbar"><div><BookOpen /><span>Ezhil’s Friendship Album</span></div><button type="button" onClick={() => setStage('locked')} aria-label="Close photo album"><X /></button></div>
       <div className="album-book-shell">
         <button type="button" className="album-arrow album-arrow-left" onClick={previousPage} disabled={page === 0} aria-label="Previous album page"><ArrowLeft /></button>
-        <AnimatePresence mode="wait" initial={false} custom={direction}>
-        <motion.article className={`album-page flip-${direction > 0 ? 'forward' : 'backward'}`} key={page} custom={direction} initial={{ opacity: .25, rotateY: direction > 0 ? -88 : 88, x: direction > 0 ? 45 : -45, scale: .97 }} animate={{ opacity: 1, rotateY: 0, x: 0, scale: 1 }} exit={{ opacity: .15, rotateY: direction > 0 ? 88 : -88, x: direction > 0 ? -45 : 45, scale: .97 }} transition={{ duration: .72, ease: [0.22, 1, 0.36, 1] }}>
+        <div className="album-page-stack">
+        <AnimatePresence mode="sync" initial={false} custom={direction}>
+        <motion.article className={`album-page flip-${direction > 0 ? 'forward' : 'backward'}`} key={page} custom={direction} initial={{ opacity: 1, rotateY: 0 }} animate={{ opacity: 1, rotateY: 0, zIndex: 1 }} exit={{ opacity: [1, 1, .92], rotateY: direction > 0 ? -178 : 178, zIndex: 5, boxShadow: ['25px 30px 80px rgba(0,0,0,.65)', direction > 0 ? '-35px 25px 65px rgba(0,0,0,.7)' : '35px 25px 65px rgba(0,0,0,.7)', '0 12px 30px rgba(0,0,0,.25)'] }} transition={{ duration: 1.05, ease: [0.45, 0, 0.2, 1] }}>
           <div className="album-binding" aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <i key={index} />)}</div>
           <div className="album-photo-frame"><img src={memory.image} alt={`${memory.title}: ${memory.caption}`} loading="lazy" /><span>🐾</span></div>
           <div className="album-page-copy"><span>{memory.date}</span><h3>{memory.title}</h3><p>{memory.caption}</p></div>
           <div className="album-page-number">PAGE {String(page + 1).padStart(2, '0')} / 20</div>
         </motion.article>
         </AnimatePresence>
+        </div>
         <button type="button" className="album-arrow album-arrow-right" onClick={nextPage} disabled={page === birthdayData.albumMemories.length - 1} aria-label="Next album page"><ArrowRight /></button>
       </div>
       <div className="album-thumbnails">{birthdayData.albumMemories.map((item, index) => <button type="button" className={page === index ? 'active' : ''} key={item.title} onClick={() => openPage(index)} aria-label={`Open album page ${index + 1}`}>{index + 1}</button>)}</div>
