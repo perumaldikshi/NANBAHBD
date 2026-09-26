@@ -1,0 +1,180 @@
+/* Final site-wide palette: panda black, panda white, bamboo green and soft mint. */
+:root {
+  --violet: #5fb48f;
+  --blue: #4f9f78;
+  --gold: #bde8a8;
+  --muted: #a9bbb3;
+  --glass: rgba(10, 27, 21, 0.72);
+  --border: rgba(154, 231, 199, 0.17);
+}
+
+*::selection { background: #39775c; color: #f3fff8; }
+* { scrollbar-color: #4f9f78 #07100c; }
+button:focus-visible,
+input:focus-visible,
+a:focus-visible { outline-color: #8ee8c2 !important; }
+
+html,
+body {
+  background: #040806;
+  color: #f3fff9;
+}
+
+.orb-a { background: #226044 !important; }
+.orb-b { background: #4a9a72 !important; }
+.vignette { box-shadow: inset 0 0 180px 70px #040806; }
+.eyebrow { color: #9ae7c7; }
+.text-button { color: #a9e6cb; }
+.icon-button { background: #08130f; }
+.terminal { color: #bed8cc; }
+.loader span { box-shadow: 0 0 16px #65c49c; }
+.system-ready { color: #87e5ba; }
+
+.primary {
+  background: linear-gradient(120deg, #39775c, #8ce0bd);
+  color: #04110b;
+  box-shadow: 0 10px 32px rgba(87, 190, 146, 0.28);
+}
+.primary:hover { box-shadow: 0 15px 40px rgba(87, 190, 146, 0.42); }
+.answers button:hover:not(:disabled) { border-color: #73cca7; background: rgba(115, 204, 167, 0.1); }
+.hint { background: rgba(142, 232, 194, 0.09); color: #afe8cf; }
+.memory-card { background: rgba(7, 19, 14, 0.84); }
+.memory-card:hover { border-color: rgba(142, 232, 194, 0.65); }
+.image-fallback { background: radial-gradient(circle at 50% 35%, rgba(92, 180, 143, 0.2), transparent 55%), #07100c; }
+.lock-icon { background: radial-gradient(circle, rgba(142, 232, 194, 0.25), rgba(66, 123, 103, 0.05)); box-shadow: inset 0 0 30px rgba(142, 232, 194, 0.14); }
+.lock-icon svg { color: #9ae7c7; }
+.lock-panel input { background: #06100c; }
+.typewriter { color: #e9f8f0; }
+.gift-icon { background: radial-gradient(circle, rgba(142, 232, 194, 0.24), rgba(66, 123, 103, 0.09), transparent); box-shadow: 0 0 70px rgba(92, 180, 143, 0.2); }
+.gift-details svg { color: #86d9b6; }
+.sound-toggle { background: rgba(5, 17, 12, 0.84); }
+.admin button { background: #07140f; }
+.reason-card > svg { color: #8ee8c2; }
+.friendship-promise { background: radial-gradient(circle at 50% 0, rgba(92, 180, 143, 0.2), transparent 55%), linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)); }
+
+.cinema-curtain {
+  background: repeating-linear-gradient(90deg, #06150e 0, #174f35 18%, #092318 38%, #2e7654 58%, #071a12 82%);
+}
+.cinema-stage { border-color: rgba(154, 231, 199, 0.48); }
+.marquee-bulbs { background: radial-gradient(circle, #dfffee 0 2px, #3b8b68 2.5px, transparent 4px) 0 0/24px 5px repeat-x; filter: drop-shadow(0 0 5px #8ee8c2); }
+.cinema-kicker,
+.cinema-presents,
+.cinema-credit { color: #9dd7bc; }
+.cinema-presents svg { color: #8ee8c2; }
+.cinema-title-wrap h1 { background: linear-gradient(#fff 12%, #a8e8cc 48%, #f5fff9 67%, #4d9575 100%); background-clip: text; -webkit-background-clip: text; filter: drop-shadow(0 4px 0 #153a29) drop-shadow(0 14px 18px #000); }
+.cinema-title-wrap h1:after { color: #112f21; -webkit-text-fill-color: #112f21; }
+.cinema-enter { border-color: #9ae7c7; background: linear-gradient(135deg, #9ae7c7, #39775c); color: #04110b; box-shadow: 0 8px 30px rgba(92, 180, 143, 0.28); }
+.cinema-enter:hover { box-shadow: 0 14px 36px rgba(92, 180, 143, 0.42); }
+.cinema-qr { border-color: #5ea987; background: #07140f; color: #bcebd6; }
+.birthday-confetti i { background: #8ee8c2 !important; }
+.birthday-confetti i:nth-child(3n) { background: #4e9a76 !important; }
+.birthday-confetti i:nth-child(3n+1) { background: #dfffee !important; }
+.balloon-violet { background: radial-gradient(circle at 32% 25%, #d9ffee, #5ab78e 57%, #1d593d) !important; }
+.balloon-gold { background: radial-gradient(circle at 32% 25%, #f1fff7, #8bd3ae 58%, #376b51) !important; }
+.balloon-blue { background: radial-gradient(circle at 32% 25%, #c9ffe8, #3f9c73 58%, #174c33) !important; }
+.progress-track span { background: linear-gradient(90deg, #285d43, #8ee8c2) !important; }
+.timeline:before { background: linear-gradient(#8ee8c2, #39775c, transparent) !important; }
+.timeline article div:before { background: #8ee8c2 !important; box-shadow: 0 0 15px #8ee8c2 !important; }
+.panda-blush { background: #74cfa8 !important; }
+.panda-heart { color: #8ee8c2 !important; filter: drop-shadow(0 0 7px rgba(142,232,194,.55)) !important; }
+.cinema-curtain { background: repeating-linear-gradient(90deg,#05120c 0,#174f35 18%,#092318 38%,#2e7654 58%,#06170f 82%) !important; }
+.cinema-stage { background: linear-gradient(145deg,rgba(13,38,28,.96),rgba(3,10,7,.94)) !important; box-shadow:0 0 0 5px #06120c,0 0 0 7px #477b61,0 40px 100px #000,0 0 90px rgba(92,180,143,.25),inset 0 0 70px #000 !important; }
+.cinema-spotlight { background: linear-gradient(to bottom,rgba(174,238,207,.58),transparent 76%) !important; }
+.cinema-title-wrap p { color:#dcefe5 !important; }
+.cinema-status { color:#8eaa9e !important; }
+.puzzle-card,
+.reason-card,
+.friendship-stat,
+.friendship-promise,
+.friendship-archive-intro,
+.lock-panel,
+.letter,
+.qr-card,
+.last-thing-continue,
+.gift-details { border-color:rgba(142,232,194,.17) !important; }
+
+/* Strict green-only accents across every interaction state. */
+.error { background:rgba(79,159,120,.12) !important; color:#9ae7c7 !important; border:1px solid rgba(142,232,194,.2); }
+.hint,
+.success { background:rgba(79,159,120,.1) !important; color:#a9ecd0 !important; }
+.success span,
+.puzzle-number,
+.memory-copy span,
+.timeline article>span,
+.hero-birthday span,
+.celebration { color:#8ee8c2 !important; }
+.completion>svg,
+.access-bar span { color:#8ee8c2 !important; background:#4f9f78 !important; }
+.film-strip { border-color:#39775c !important; background:linear-gradient(90deg,#020503 0 8px,transparent 8px 26px,#020503 26px),repeating-linear-gradient(#5fb48f 0 10px,transparent 10px 22px) !important; }
+.balloon:after { background:linear-gradient(rgba(142,232,194,.62),transparent) !important; }
+.marquee-bulbs { background:radial-gradient(circle,#dfffee 0 2px,#39775c 2.5px,transparent 4px) 0 0/24px 5px repeat-x !important; }
+.cinema-title-wrap h1 { background:linear-gradient(#f3fff8 12%,#8ee8c2 48%,#dfffee 67%,#39775c 100%) !important; background-clip:text !important; -webkit-background-clip:text !important; }
+.cinema-kicker,
+.cinema-presents,
+.cinema-credit,
+.panda-intro-mascot:after { color:#8fd7b8 !important; }
+.gift-icon svg,
+.gift-details svg { color:#8ee8c2 !important; }
+.qr-wrap { border:4px solid #39775c; }
+
+/* Unified panda-green buttons */
+.primary,
+.cinema-enter {
+  border:1px solid #a8efd1 !important;
+  background:linear-gradient(135deg,#9ae7c7 0%,#5fb48f 48%,#39775c 100%) !important;
+  color:#03100a !important;
+  box-shadow:0 10px 28px rgba(79,159,120,.3),inset 0 1px 0 rgba(255,255,255,.35) !important;
+}
+.primary { text-decoration:none; }
+.primary:hover,
+.cinema-enter:hover {
+  background:linear-gradient(135deg,#b8f4da 0%,#72c9a4 48%,#468b69 100%) !important;
+  box-shadow:0 15px 38px rgba(95,180,143,.42) !important;
+}
+.primary:active,
+.cinema-enter:active { transform:translateY(1px) scale(.985) !important; }
+.secondary,
+.cinema-qr {
+  border:1px solid rgba(142,232,194,.4) !important;
+  background:linear-gradient(145deg,rgba(50,105,78,.72),rgba(14,43,31,.88)) !important;
+  color:#dfffee !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1) !important;
+}
+.secondary:hover,
+.cinema-qr:hover { background:linear-gradient(145deg,rgba(68,132,101,.85),rgba(20,59,43,.95)) !important; border-color:#8ee8c2 !important; }
+.text-button { color:#9ae7c7 !important; border-radius:10px; }
+.text-button:hover { background:rgba(95,180,143,.12) !important; }
+.icon-button { background:#0a2117 !important; border-color:rgba(142,232,194,.35) !important; color:#b9f1d8 !important; }
+.answers button {
+  background:linear-gradient(145deg,rgba(24,62,45,.9),rgba(8,27,19,.96)) !important;
+  border-color:rgba(142,232,194,.2) !important;
+  color:#eafff4 !important;
+}
+.answers button:hover:not(:disabled) { background:linear-gradient(145deg,rgba(53,117,86,.9),rgba(22,67,47,.96)) !important; border-color:#8ee8c2 !important; }
+
+/* Unified dark-forest panda cards */
+.glass,
+.puzzle-card,
+.memory-card,
+.reason-card,
+.friendship-stat,
+.friendship-promise,
+.friendship-archive-intro,
+.lock-panel,
+.letter,
+.qr-card,
+.last-thing-continue,
+.gift-details,
+.mission-progress,
+.completion {
+  background:linear-gradient(145deg,rgba(22,58,42,.88),rgba(5,20,13,.94)) !important;
+  border:1px solid rgba(142,232,194,.2) !important;
+  box-shadow:0 22px 65px rgba(0,0,0,.34),inset 0 1px 0 rgba(214,255,236,.08) !important;
+}
+.puzzle-card:hover,
+.memory-card:hover,
+.reason-card:hover,
+.friendship-stat:hover {
+  border-color:rgba(142,232,194,.58) !important;
+  box-shadow:0 25px 70px rgba(0,0,0,.4),0 0 28px rgba(79,159,120,.13) !important;
+}
