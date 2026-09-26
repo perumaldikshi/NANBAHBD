@@ -84,7 +84,40 @@ jobs:
 
 Your flow is: **GitHub repository → Vite build → GitHub Pages → open `#/qr` → download QR → send it through WhatsApp**.
 
-For Netlify or Vercel, import the repository, use `npm run build`, and set the output directory to `dist`.
+## Vercel deployment
+
+The project includes a ready-to-use `vercel.json`. It configures Vite, builds into `dist`, preserves SPA routing, and caches generated assets.
+
+### Deploy from GitHub
+
+1. Push this project to a GitHub repository.
+2. Sign in to [Vercel](https://vercel.com/) and select **Add New → Project**.
+3. Import the GitHub repository.
+4. Vercel will detect these settings automatically:
+   - Framework: `Vite`
+   - Build command: `npm run build`
+   - Output directory: `dist`
+5. Select **Deploy**.
+6. Open the deployed URL and test the complete birthday flow.
+7. Open `https://YOUR-PROJECT.vercel.app/#/qr` to download the final QR code.
+
+Every push to the connected production branch will create a new deployment automatically.
+
+### Deploy with the Vercel CLI
+
+```bash
+npm install
+npm run build
+npx vercel
+```
+
+For a production deployment:
+
+```bash
+npx vercel --prod
+```
+
+No environment variables, backend, database, or paid service is required.
 
 ## WhatsApp start message
 
