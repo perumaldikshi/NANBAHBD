@@ -33,7 +33,6 @@ export default function FinalPhotoAlbum({ standalone = false }) {
 
   const nextPage = () => { setDirection(1); setPage((current) => Math.min(totalPages - 1, current + 1)) }
   const previousPage = () => { setDirection(-1); setPage((current) => Math.max(0, current - 1)) }
-  const openPage = (index) => { setDirection(index >= page ? 1 : -1); setPage(index) }
   const closeAlbum = () => standalone ? navigate('/final') : setStage('locked')
 
   return <section className="special-album-section">
@@ -56,7 +55,6 @@ export default function FinalPhotoAlbum({ standalone = false }) {
         </div>
         <button type="button" className="album-arrow album-arrow-right" onClick={nextPage} disabled={page === totalPages - 1} aria-label="Next album page"><ArrowRight /></button>
       </div>
-      <div className="album-thumbnails">{birthdayData.albumMemories.map((item, index) => <button type="button" className={page === index ? 'active' : ''} key={item.title} onClick={() => openPage(index)} aria-label={`Open album page ${index + 1}`}>{index + 1}</button>)}</div>
     </motion.div></AnimatePresence>, document.body)}
   </section>
 }
