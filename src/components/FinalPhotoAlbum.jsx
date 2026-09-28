@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, BookOpen, Gift, Sparkles, X } from 'lucide-react'
 import { birthdayData } from '../data/birthdayData'
 import './finalPhotoAlbum.css'
 
-export default function FinalPhotoAlbum() {
-  const [stage, setStage] = useState('locked')
+export default function FinalPhotoAlbum({ standalone = false }) {
+  const navigate = useNavigate()
+  const [stage, setStage] = useState(standalone ? 'album' : 'locked')
   const [page, setPage] = useState(0)
   const [direction, setDirection] = useState(1)
   const touchStart = useRef(null)
@@ -32,13 +34,14 @@ export default function FinalPhotoAlbum() {
   const nextPage = () => { setDirection(1); setPage((current) => Math.min(totalPages - 1, current + 1)) }
   const previousPage = () => { setDirection(-1); setPage((current) => Math.max(0, current - 1)) }
   const openPage = (index) => { setDirection(index >= page ? 1 : -1); setPage(index) }
+  const closeAlbum = () => standalone ? navigate('/final') : setStage('locked')
 
   return <section className="special-album-section">
     <header><p className="eyebrow"><Gift /> Special gift for Ezhil</p><h2>Our friendship album.</h2><p>Open all fifteen pages of memories collected especially for you.</p></header>
-    {stage === 'locked' && <motion.button type="button" className="special-gift-button" onClick={() => setStage('album')} whileHover={{ y: -5 }} whileTap={{ scale: .97 }}><span><BookOpen /></span><div><small>15 memory pages</small><strong>Open the friendship album</strong></div><Sparkles /></motion.button>}
+    {stage === 'locked' && <motion.button type="button" className="special-gift-button" onClick={() => navigate('/album')} whileHover={{ y: -5 }} whileTap={{ scale: .97 }}><span><BookOpen /></span><div><small>15 memory pages</small><strong>Open the friendship album</strong></div><Sparkles /></motion.button>}
 
-    <AnimatePresence>{stage === 'album' && createPortal(<motion.div className="album-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <div className="album-toolbar"><div><BookOpen /><span>Ezhil’s Friendship Album</span></div><button type="button" onClick={() => setStage('locked')} aria-label="Close photo album"><X /></button></div>
+    {stage === 'album' && createPortal(<AnimatePresence><motion.div className="album-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <div className="album-toolbar"><div><BookOpen /><span>Ezhil’s Friendship Album</span></div><button type="button" onClick={closeAlbum} aria-label="Close photo album"><X /></button></div>
       <div className="album-book-shell" onTouchStart={(event) => { touchStart.current = event.touches[0].clientX }} onTouchEnd={(event) => { if (touchStart.current === null) return; const distance = event.changedTouches[0].clientX - touchStart.current; touchStart.current = null; if (Math.abs(distance) < 45) return; if (distance < 0) nextPage(); else previousPage() }}>
         <button type="button" className="album-arrow album-arrow-left" onClick={previousPage} disabled={page === 0} aria-label="Previous album page"><ArrowLeft /></button>
         <div className="album-page-stack">
@@ -54,6 +57,6 @@ export default function FinalPhotoAlbum() {
         <button type="button" className="album-arrow album-arrow-right" onClick={nextPage} disabled={page === totalPages - 1} aria-label="Next album page"><ArrowRight /></button>
       </div>
       <div className="album-thumbnails">{birthdayData.albumMemories.map((item, index) => <button type="button" className={page === index ? 'active' : ''} key={item.title} onClick={() => openPage(index)} aria-label={`Open album page ${index + 1}`}>{index + 1}</button>)}</div>
-    </motion.div>, document.body)}</AnimatePresence>
+    </motion.div></AnimatePresence>, document.body)}
   </section>
 }

@@ -12,9 +12,11 @@ import Lock from './pages/Lock'
 import Letter from './pages/Letter'
 import LastThing from './pages/LastThing'
 import Final from './pages/Final'
+import Album from './pages/Album'
+import Clear from './pages/Clear'
 import './greenPandaOverrides.css'
 import './premiumPanda.css'
 import './responsive.css'
 export default function App() {
-  return <><a className="skip-link" href="#main">Skip to content</a><AnimatedBackground/><PandaWorld/><PandaRouteLoader/><div id="main"><Routes><Route path="/" element={<PandaHunt/>}/><Route path="/intro" element={<Home/>}/><Route path="/mission" element={<Mission/>}/><Route path="/memories" element={<Memories/>}/><Route path="/lock" element={<Lock/>}/><Route path="/letter" element={<Letter/>}/><Route path="/last-thing" element={<LastThing/>}/><Route path="/final" element={<Final/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes></div><SoundToggle/><AdminReset/></>
+  return <><a className="skip-link" href="#main">Skip to content</a><AnimatedBackground/><PandaWorld/><PandaRouteLoader/><div id="main"><Routes><Route path="/" element={<PandaHunt/>}/><Route path="/intro" element={<Home/>}/><Route path="/mission" element={<Mission/>}/><Route path="/memories" element={<Memories/>}/><Route path="/lock" element={<Lock/>}/><Route path="/letter" element={<Letter/>}/><Route path="/last-thing" element={<LastThing/>}/><Route path="/final" element={<Final/>}/><Route path="/album" element={<Album/>}/><Route path="/clear" element={<Clear/>}/><Route path="*" element={<Navigate to="/" replace/>}/></Routes></div><SoundToggle/><AdminReset/></>
 }

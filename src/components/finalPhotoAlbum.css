@@ -17,3 +17,4 @@
 @media(max-width:600px){.album-modal{padding-top:max(.5rem,env(safe-area-inset-top));padding-right:max(.5rem,env(safe-area-inset-right));padding-bottom:max(.5rem,env(safe-area-inset-bottom));padding-left:max(.5rem,env(safe-area-inset-left))}.album-toolbar,.album-book-shell,.album-thumbnails{width:100%}.album-page{max-width:100%}.album-page-copy p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}}
 @media(max-width:340px){.album-modal{padding-inline:.3rem}.album-book-shell{padding-bottom:3rem}.album-page{height:min(64dvh,500px);padding:.65rem .55rem 1.5rem}.album-photo-frame{height:calc(min(64dvh,500px) - 158px)}.album-toolbar>div span{max-width:145px}.album-arrow{width:38px;height:38px}.album-arrow-left{left:calc(50% - 46px)}.album-arrow-right{right:calc(50% - 46px)}}
 .album-game-modal,.album-modal{z-index:9999;isolation:isolate}
+.album-page-number{display:none}
