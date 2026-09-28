@@ -12,8 +12,19 @@ export default function FinalPhotoAlbum({ standalone = false }) {
   const [page, setPage] = useState(0)
   const [direction, setDirection] = useState(1)
   const touchStart = useRef(null)
+  const preloadedImages = useRef([])
   const memory = birthdayData.albumMemories[page]
   const totalPages = birthdayData.albumMemories.length
+
+  useEffect(() => {
+    preloadedImages.current = birthdayData.albumMemories.map(({ image }) => {
+      const photo = new Image()
+      photo.decoding = 'async'
+      photo.src = image
+      return photo
+    })
+    return () => { preloadedImages.current = [] }
+  }, [])
 
   useEffect(() => {
     if (stage !== 'album') return undefined
@@ -45,9 +56,9 @@ export default function FinalPhotoAlbum({ standalone = false }) {
         <button type="button" className="album-arrow album-arrow-left" onClick={previousPage} disabled={page === 0} aria-label="Previous album page"><ArrowLeft /></button>
         <div className="album-page-stack">
         <AnimatePresence mode="sync" initial={false} custom={direction}>
-        <motion.article className={`album-page flip-${direction > 0 ? 'forward' : 'backward'}`} key={page} custom={direction} initial={{ opacity: 1, rotateY: 0 }} animate={{ opacity: 1, rotateY: 0, zIndex: 1 }} exit={{ opacity: [1, 1, .92], rotateY: direction > 0 ? -178 : 178, zIndex: 5, boxShadow: ['25px 30px 80px rgba(0,0,0,.65)', direction > 0 ? '-35px 25px 65px rgba(0,0,0,.7)' : '35px 25px 65px rgba(0,0,0,.7)', '0 12px 30px rgba(0,0,0,.25)'] }} transition={{ duration: 1.05, ease: [0.45, 0, 0.2, 1] }}>
+        <motion.article className={`album-page flip-${direction > 0 ? 'forward' : 'backward'}`} key={page} custom={direction} initial={{ opacity: 1, rotateY: 0 }} animate={{ opacity: 1, rotateY: 0, zIndex: 1 }} exit={{ opacity: [1, 1, .92], rotateY: direction > 0 ? -178 : 178, zIndex: 5, boxShadow: ['25px 30px 80px rgba(0,0,0,.65)', direction > 0 ? '-35px 25px 65px rgba(0,0,0,.7)' : '35px 25px 65px rgba(0,0,0,.7)', '0 12px 30px rgba(0,0,0,.25)'] }} transition={{ duration: .48, ease: [0.45, 0, 0.2, 1] }}>
           <div className="album-binding" aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <i key={index} />)}</div>
-          <div className="album-photo-frame"><img src={memory.image} alt={`${memory.title}: ${memory.caption}`} loading="lazy" /><span>🐾</span></div>
+          <div className="album-photo-frame"><img src={memory.image} alt={`${memory.title}: ${memory.caption}`} loading="eager" decoding="async" fetchPriority="high" /><span>🐾</span></div>
           <div className="album-page-copy"><span>{memory.date}</span><h3>{memory.title}</h3><p>{memory.caption}</p></div>
           <div className="album-page-number">PAGE {String(page + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}</div>
         </motion.article>
