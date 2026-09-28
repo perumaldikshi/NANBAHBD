@@ -12,6 +12,9 @@ export default function LastThing() {
   const navigate = useNavigate()
   const { update } = useMissionProgress()
   const [selected, setSelected] = useState(null)
+  const finalMemories = ['2024', '2025', '2026']
+    .map((year) => birthdayData.gallery.find((memory) => memory.date === year && memory.image))
+    .filter(Boolean)
 
   const continueToFinal = () => {
     update({ lastThing: true })
@@ -27,7 +30,7 @@ export default function LastThing() {
       </header>
 
       <section className="photo-reveal" aria-label="Final memory reveal">
-        {birthdayData.gallery.slice(0, 3).map((memory, index) => (
+        {finalMemories.map((memory, index) => (
           <div className={`reveal-photo reveal-${index}`} key={`${memory.title}-${index}`}>
             <MemoryCard memory={memory} onOpen={() => setSelected(memory)} />
           </div>
