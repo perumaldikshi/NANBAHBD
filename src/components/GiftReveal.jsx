@@ -15,6 +15,10 @@ export default function GiftReveal({ alreadyOpen, onOpen }) {
       if (Date.now() < end) requestAnimationFrame(fire)
     }
     fire()
+    ;[0, 280, 560, 840].forEach((delay, index) => setTimeout(() => {
+      const left = index % 2 === 0
+      confetti({ particleCount: 90, angle: left ? 62 : 118, spread: 75, startVelocity: 62, gravity: 1.05, origin: { x: left ? .08 : .92, y: .92 }, colors: ['#8ee8c2', '#ffffff', '#e9bd65', '#9b7cff'], disableForReducedMotion: true, scalar: 1.05 })
+    }, delay))
   }
 
   return <div className={`gift-reveal ${open ? 'open' : ''}`}>

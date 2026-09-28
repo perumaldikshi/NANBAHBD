@@ -4,7 +4,6 @@ import { Check, ChevronRight, Crown, Home, Images, Infinity as InfinityIcon, Lea
 import PageTransition from '../components/PageTransition'
 import GiftReveal from '../components/GiftReveal'
 import PandaMascot from '../components/PandaMascot'
-import VoiceMessages from '../components/VoiceMessages'
 import FinalPhotoAlbum from '../components/FinalPhotoAlbum'
 import { birthdayData } from '../data/birthdayData'
 import { useMissionProgress } from '../hooks/useMissionProgress'
@@ -46,8 +45,6 @@ export default function Final() {
       <p className="eyebrow">Ezhil’s birthday surprise</p>
       <GiftReveal alreadyOpen={progress.final} onOpen={() => update({ final: true })} />
     </section>
-
-    <VoiceMessages />
 
     <FinalPhotoAlbum />
 

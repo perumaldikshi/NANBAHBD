@@ -1,0 +1,61 @@
+/* Final device-wide responsive safety layer */
+html,body,#root{width:100%;max-width:100%;min-height:100%;overflow-x:hidden}img,svg,canvas,video{max-width:100%}button,a,input{max-width:100%}h1,h2,h3,p,blockquote{overflow-wrap:anywhere}.page,.section,.content-wrap{max-width:100%}.glass{max-width:100%}
+
+@media(max-width:860px){
+  .page{width:100%;padding:5.5rem clamp(1rem,4vw,1.5rem) 8rem}
+  .section{padding-inline:clamp(1rem,4vw,1.5rem)}
+  .page-header{margin-bottom:2rem}
+  .page-header h1{font-size:clamp(2.25rem,11vw,4.5rem)}
+  .primary,.secondary{white-space:normal;text-align:center}
+  .final-actions,.qr-actions{width:100%}
+  .memory-modal,.lock-panel,.letter,.qr-card{width:100%}
+  .timeline article{grid-template-columns:58px minmax(0,1fr);gap:1rem}
+  .timeline:before{left:37px}.timeline article div:before{left:-23px}
+}
+
+@media(max-width:480px){
+  .page{padding-inline:.85rem}
+  .section{padding-inline:.85rem}
+  .hero h1{font-size:clamp(2.55rem,14vw,4.2rem)}
+  .countdown-grid{grid-template-columns:repeat(2,1fr);row-gap:1rem}
+  .countdown-grid div:nth-child(2){border-right:0}
+  .friendship-stats{grid-template-columns:1fr 1fr}
+  .gallery{grid-auto-columns:92%}
+  .gift-details{padding:1rem}
+  .gift-details p{font-size:.86rem}
+  .sound-toggle{right:.65rem}.admin{left:.65rem}
+  .panda-hunt-page{padding-top:2.5rem}
+}
+
+@media(max-width:340px){
+  .page{padding-inline:.65rem}
+  .primary,.secondary{width:100%;padding-inline:.7rem;font-size:.66rem}
+  .friendship-stats{grid-template-columns:1fr}
+  .timeline article{grid-template-columns:48px minmax(0,1fr);gap:.8rem}
+  .timeline:before{left:31px}.timeline article div:before{left:-19px}
+  .countdown{padding:1rem}.countdown strong{font-size:1.6rem}
+  .experience-hud{width:calc(100% - 12px)}
+  .experience-hud nav a span{font-size:.4rem}
+}
+
+@media(max-height:560px) and (orientation:landscape){
+  .page{padding-top:4.5rem}
+  .section{min-height:auto;padding-block:4.5rem}
+  .panda-hunt-page{display:block;padding-top:4.5rem}
+  .panda-hunt-page .panda-hunt-grid{grid-template-columns:repeat(10,minmax(0,1fr))}
+  .panda-hunt-page .panda-spot{min-height:68px}
+  .album-game-modal{align-items:start;overflow-y:auto}
+  .album-game-card{min-height:0;margin-block:auto}
+  .cinema-overlay{overflow-y:auto}
+  .cinema-stage{margin-block:auto}
+}
+
+@media(min-width:1600px){
+  .page{max-width:1280px}
+  .content-wrap{max-width:1280px}
+}
+
+@media(hover:none){
+  .memory-card:hover,.puzzle-card:hover,.reason-card:hover,.friendship-stat:hover{transform:none}
+  button{-webkit-tap-highlight-color:transparent}
+}

@@ -70,8 +70,8 @@ export const birthdayData = {
     { name: 'Logu', role: 'Birthday voice message', audio: 'audio/voice-02.wav', sampleText: 'Happy Birthday Ezhil! Wishing you a fantastic day filled with laughter, fun, and everything you enjoy. Have an amazing year ahead. From your friend Logu.' },
     { name: 'Sathish', role: 'Birthday voice message', audio: 'audio/voice-03.wav', sampleText: 'Happy Birthday Ezhil! May your birthday be as special as you are, and may our friendship continue with more fun, memories, and happiness. From your friend Sathish.' },
   ],
-  albumMemories: Array.from({ length: 20 }, (_, index) => ({
-    image: `images/album-${String(index + 1).padStart(2, '0')}.png`,
+  albumMemories: Array.from({ length: 15 }, (_, index) => ({
+    image: `/images/album-${String(index + 1).padStart(2, '0')}.png`,
     title: `Ezhil Memory ${String(index + 1).padStart(2, '0')}`,
     date: index < 5 ? 'The Beginning' : index < 10 ? 'More Memories' : index < 15 ? 'Our Best Chaos' : 'Still Best Friends',
     caption: [
